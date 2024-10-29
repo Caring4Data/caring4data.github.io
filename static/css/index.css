@@ -74,6 +74,11 @@ body {
    color: hsl(204, 86%, 53%) !important;
 }
 
+.highlighted a {
+  color: hsl(204, 86%, 53%) !important;
+}
+
+
 .publication-authors a:hover {
     text-decoration: underline;
 }
@@ -133,5 +138,34 @@ body {
   font-size: smaller;
 }
 
-
-
+.news-section {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.news-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+.news-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.news-item {
+  display: flex;
+  /* border-bottom: 1px solid #ddd; */
+  padding: 10px 0;
+}
+.news-date {
+  flex: 1;
+  color: #888;
+  font-size: 0.9em;
+  padding-right: 10px;
+  text-align: right;
+  min-width: 100px;
+}
+.news-description {
+  flex: 3;
+  padding-left: 10px;
+}
