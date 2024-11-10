@@ -169,3 +169,10 @@ body {
   flex: 3;
   padding-left: 10px;
 }
+.logo-container {
+  text-align: center;
+}
+.logo {
+  max-width: 20%; /* Ensure the logo fits within the container */
+  height: auto;    /* Maintain aspect ratio */
+}
