@@ -43,6 +43,65 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  
+  <style>
+    /* Custom styles for BibTeX citation box */
+    .bibtex-section {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .bibtex-box {
+      background-color: #f5f5f5;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+      padding: 1rem;
+      position: relative;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+    
+    .bibtex-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .bibtex-title {
+      font-weight: bold;
+      font-family: 'Google Sans', sans-serif;
+      font-size: 1rem;
+      color: #363636;
+    }
+    
+    .copy-button {
+      background-color: #363636;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Google Sans', sans-serif;
+    }
+    
+    .copy-button:hover {
+      background-color: #4a4a4a;
+    }
+    
+    .copy-button.copied {
+      background-color: #48c774;
+    }
+    
+    .bibtex-content {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
 
@@ -117,6 +176,31 @@
                 </a>
               </span> -->
             </div>
+            
+            <!-- BibTeX Citation Section -->
+            <div class="bibtex-section">
+              <div class="bibtex-box">
+                <div class="bibtex-header">
+                  <span class="bibtex-title">BibTeX Citation</span>
+                  <button class="copy-button" onclick="copyBibtex()">
+                    <span class="icon">
+                      <i class="fas fa-copy"></i>
+                    </span>
+                    <span>Copy</span>
+                  </button>
+                </div>
+                <pre class="bibtex-content" id="bibtex-text">@misc{caring2024,
+  author = {Klamm, Christopher and Bach, Ruben and Tsereteli, Tornike},
+  title = {CARING: A Platform to Enhance Dataset Quality through Open Collaboration},
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/Caring4Data}},
+  note = {Funded by the University of Mannheim Open Science Grant}
+}</pre>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
@@ -221,7 +305,7 @@
         <div class="content">
 
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
@@ -231,6 +315,28 @@
     </div>
   </div>
 </footer>
+
+<!-- JavaScript for copy functionality -->
+<script>
+function copyBibtex() {
+  const bibtexText = document.getElementById('bibtex-text').textContent;
+  const button = document.querySelector('.copy-button');
+  
+  navigator.clipboard.writeText(bibtexText).then(function() {
+    // Change button text to indicate success
+    button.innerHTML = '<span class="icon"><i class="fas fa-check"></i></span><span>Copied!</span>';
+    button.classList.add('copied');
+    
+    // Reset button after 2 seconds
+    setTimeout(function() {
+      button.innerHTML = '<span class="icon"><i class="fas fa-copy"></i></span><span>Copy</span>';
+      button.classList.remove('copied');
+    }, 2000);
+  }).catch(function(err) {
+    console.error('Could not copy text: ', err);
+  });
+}
+</script>
 
 <!-- Statcounter tracking code -->
   
